@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <script>
+function toLowerCase(string) {
+  var CONVERSION_OFFSET = 32;
+  var len = string.length;
+  var new_str = '';
+
+  for (var i = 0; i < len; i++) {
+    if (string[i] >= 'A' && string[i] <= 'Z') {
+      asciiNum = string.charCodeAt(i);
+      new_str += String.fromCharCode(asciiNum + CONVERSION_OFFSET)
+    } else {
+      new_str += string[i];
+    }
+  }
+  return new_str;
+}
+
+console.log(toLowerCase('ALPHABET'));    // "alphabet"
+console.log(toLowerCase('123'));         // "123"
+console.log(toLowerCase('abcDEF'));      // "abcdef"
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

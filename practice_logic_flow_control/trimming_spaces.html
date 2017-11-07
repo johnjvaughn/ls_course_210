@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <script>
+function trim(str) {
+  var len = str.length;
+  var firstChar = null;
+
+  for (var i = 0; i < len; i++) {
+    if (str[i] !== ' ') {
+      if (firstChar === null) firstChar = i;
+      lastChar = i;
+    }
+  }
+
+  if (firstChar === null) return '';
+
+  var new_str = '';
+  for (i = firstChar; i <= lastChar; i++) {
+    new_str += str[i];
+  }
+
+  return new_str;
+}
+
+console.log('abc' === trim('  abc  '));  // "abc"
+console.log('abc' === trim('abc   '));   // "abc"
+console.log('ab c' === trim(' ab c'));    // "ab c"
+console.log('a b  c' === trim(' a b  c'));  // "a b  c"
+console.log('' === trim('      '));   // ""
+console.log('' === trim(''));         // ""
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

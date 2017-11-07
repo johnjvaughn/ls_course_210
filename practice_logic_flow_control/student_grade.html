@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <script>
+function get_scores() {
+  var scores = [];
+  var num_scores = Number(prompt('How many scores are you going to enter?'));
+
+  for (var i = 1; i <= num_scores; i++) {
+    scores.push(Number(prompt('Enter score ' + String(i))));
+  }
+
+  return scores;
+}
+
+function average(arr) {
+  var total = 0;
+
+  for (var i = 0, len = arr.length; i < len; i++) {
+    total += arr[i];
+  }
+
+  console.log("average is: " + Math.round(total / len));
+  return Math.round(total / len);
+}
+
+function score_to_grade(score) {
+  if (Number.isNaN(score)) {
+    return 'undefined';
+  } else if (score < 50) {
+    return 'F';
+  } else if (score < 70) {
+    return 'C';
+  } else if (score < 90) {
+    return 'B';
+  } else {
+    return 'A';
+  }
+}
+
+var scores = get_scores();
+if (scores.length) {
+  var grade = score_to_grade(average(scores));
+  console.log('Based on the average of your ' + scores.length + 
+              ' scores your letter grade is "' + grade + '".');
+}
+
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

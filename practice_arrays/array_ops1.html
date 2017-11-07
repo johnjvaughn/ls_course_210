@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Practice Problems: Arrays</title>
+    <meta charset="utf-8">
+    <script>
+      //1.
+      function push(arr, val) {
+        arr[arr.length] = val;
+        return arr.length;
+      }
+      var squares = [1, 4, 9]
+      var len = push(squares, 4 * 4);
+      console.log("push", squares, len);
+
+      //2.
+      function pop(arr) {
+        if (arr.length === 0) return undefined;
+        var lastValue = arr[arr.length - 1];
+        arr.length--;
+        return lastValue;
+      }
+      var last = pop(squares);
+      console.log("pop", squares, last);
+
+      //3.
+      function unshift(arr, val) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+          arr[i + 1] = arr[i];
+        }
+        arr[0] = val;
+        return arr.length;
+      }
+      var len = unshift(squares, 0);
+      console.log("unshift", squares, len);
+
+      //4.
+      function shift(arr) {
+        if (arr.length === 0) return undefined;
+        var firstValue = arr[0];
+        for (var i = 0; i < arr.length - 1; i++) {
+          arr[i] = arr[i + 1];
+        }
+        arr.length--;
+        return firstValue;
+      }
+      var first = shift(squares);
+      console.log("shift", squares, first);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

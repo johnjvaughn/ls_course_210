@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script>
+function repeat(string, times) {
+  var new_str = '';
+
+  if (!(Number(times) === times && times >= 0)) return undefined;
+  for (var i = 1; i <= times; i++) {
+    new_str += string;
+  }
+  
+  return new_str;
+}
+
+console.log('abc' === repeat('abc', 1));       // "abc"
+console.log('abcabc' === repeat('abc', 2));       // "abcabc"
+console.log(undefined === repeat('abc', -1));      // undefined
+console.log('' === repeat('abc', 0));       // ""
+console.log(undefined === repeat('abc', 'a'));     // undefined
+console.log(undefined === repeat('abc', false));   // undefined
+console.log(undefined === repeat('abc', null));    // undefined
+console.log(undefined === repeat('abc', '  '));    // undefined
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

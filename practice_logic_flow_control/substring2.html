@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <script>
+function substring(string, start, end) {
+  var len = string.length;
+  var new_str = '';
+
+  if (end === undefined) end = len;
+  if (isNaN(start) || start < 0) start = 0;
+  if (isNaN(end) || end < 0) end = 0;
+  if (start > len) start = len;
+  if (end > len) end = len;
+  if (start > end) {
+    var temp = start;
+    start = end;
+    end = temp;
+  }
+
+  for (var i = start; i < end; i++) {
+    new_str += string[i];
+  }
+
+  return new_str;
+}
+
+var string = 'hello world';
+
+console.log(substring(string, 2, 4));    // "ll"
+console.log(substring(string, 4, 2));    // "ll"
+console.log(substring(string, 0, -1));   // ""
+console.log(substring(string, 2));       // "llo world"
+console.log(substring(string, 'a'));     // "hello world"
+console.log(substring(string, 8, 20));   // "rld"
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

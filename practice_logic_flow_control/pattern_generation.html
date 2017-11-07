@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script>
+function generatePattern(number) {
+  var output = '';
+  if (number < 2) return;
+
+  for (var row = 1; row <= number; row++) {
+    for (var col = 1; col <= number; col++) {
+      if (col <= row) {
+        output += String(col);
+      } else {
+        output += '*'.repeat(Math.log10(col) + 1);
+      }
+    }
+    output += "\n"
+  }
+  console.log(output);
+}
+
+generatePattern(7);
+generatePattern(1);
+generatePattern(9);
+generatePattern(20);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

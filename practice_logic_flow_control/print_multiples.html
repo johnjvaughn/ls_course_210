@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <script>
+function logMultiples(number) {
+  if (number % 2 === 0) return;
+  var start = parseInt(100 / number) * number;
+  if (start % 2 === 0) start -= number;
+  for (var i = start; i >= number; i -= 2 * number) {
+    console.log(i);
+  }
+}
+
+logMultiples(17);
+logMultiples(21);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
