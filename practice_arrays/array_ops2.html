@@ -5,7 +5,28 @@
     <meta charset="utf-8">
     <script>
       //1.
-      
+      function indexOf(arr, search) {
+        for (var i = 0; i < arr.length; i++) {
+          if (arr[i] === search) return i;
+        }
+
+        return -1;
+      }
+      console.log(indexOf([1, 2, 3, 3], 3));         // 2
+      console.log(indexOf([1, 2, 3], 4));            // -1
+      console.log(indexOf(['Lord', 'of', 'the', 'Rings'], 'Rings'));
+      console.log(indexOf(['Lord', 'of', 'the', 'Rings'], 'Frodo'));
+
+      //2.
+      function lastIndexOf(arr, search) {
+        for (var i = arr.length - 1; i >= 0; i--) {
+          if (arr[i] === search) return i;
+        }
+
+        return -1;
+      }
+      console.log(lastIndexOf([1, 2, 3, 3], 3));         // 3
+      console.log(lastIndexOf([1, 2, 3], 4));            // -1
       
     </script>
   </head>

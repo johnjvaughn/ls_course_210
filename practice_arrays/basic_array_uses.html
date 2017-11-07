@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Practice Problems: Arrays</title>
+    <meta charset="utf-8">
+    <script>
+//1.
+function firstElementOf(arr) {
+  return arr[0];
+}
+
+console.log(firstElementOf(['U', 'S', 'A']));  // returns "U"
+
+//2.
+function lastElementOf(arr) {
+  return arr[arr.length - 1];
+}
+console.log(lastElementOf(['U', 'S', 'A']));  // returns "A"
+
+//3.
+function nthElementOf(arr, index) {
+  return arr[index];
+}
+
+var digits = [4, 8, 15, 16, 23, 42];
+
+console.log(nthElementOf(digits, 3));   // returns 16
+console.log(nthElementOf(digits, 8));   // what does this return? - undefined
+console.log(nthElementOf(digits, -1));  // what does this return? - undefined
+
+//4.
+digits[-1] = -42;
+console.log(nthElementOf(digits, -1));
+console.log(digits[-1]);
+console.log(digits['-1']);    // Note that we are using a string here
+console.log(digits);
+
+//5.
+function firstNOf(arr, count) {
+  return arr.slice(0, count);
+}
+
+var digits = [4, 8, 15, 16, 23, 42];
+console.log(firstNOf(digits, 3));    // returns [4, 8, 15]
+
+//6.
+function lastNOf(arr, count) {
+  return arr.slice(arr.length - count);
+}
+
+var digits = [4, 8, 15, 16, 23, 42];
+console.log(lastNOf(digits, 3));    // returns [16, 23, 42]
+
+//7.
+function lastNOf2(arr, count) {
+  if (count >= arr.length) return arr.slice();
+  return arr.slice(arr.length - count);
+}
+console.log(lastNOf2(digits, 8));
+
+//8.
+function endsOf(beginningArr, endingArr) {
+  return [beginningArr[0], endingArr[endingArr.length - 1]];
+}
+
+console.log(endsOf([4, 8, 15], [16, 23, 42]));  // returns [4, 42]
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

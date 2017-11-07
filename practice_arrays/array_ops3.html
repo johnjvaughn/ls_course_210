@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Practice Problems: Arrays</title>
+    <meta charset="utf-8">
+    <script>
+      //1.
+      function push(arr, val) {
+        arr[arr.length] = val;
+        return arr.length;
+      }
+
+      function slice(arr, start, end) {
+        var sliceArr = [];
+
+        for (var i = start; i < end; i++) {
+          push(sliceArr, arr[i]);
+        }
+
+        return sliceArr;
+      }
+      
+      console.log(slice([1, 2, 3, 4, 5], 0, 2));                      // [ 1, 2 ]
+      console.log(slice(['a', 'b', 'c', 'd', 'e', 'f', 'g'], 1, 3));  // [ 'b', 'c' ]
+
+      //2.
+      function pop(arr) {
+        if (arr.length === 0) return undefined;
+        var lastValue = arr[arr.length - 1];
+        arr.length--;
+        return lastValue;
+      }
+
+      function splice(arr, start, len) {
+        var spliceArr = slice(arr, start, start + len);
+        var leftoverArr = slice(arr, start + len, arr.length);
+        
+        while (arr.length > start) {
+          pop(arr);
+        }
+
+        for (var i = 0; i < leftoverArr.length; i++) {
+          push(arr, leftoverArr[i]);
+        }
+
+        return spliceArr;
+      }
+
+      var count = [1, 2, 3, 4, 5, 6, 7, 8];
+      console.log(splice(count, 2, 5));                   // [ 3, 4, 5, 6, 7 ]
+      console.log(count);                                 // [ 1, 2, 8 ]
+
+      //3.
+      function concat(arr1, arr2) {
+        var newArr = slice(arr1, 0, arr1.length);
+
+        for (var i = 0; i < arr2.length; i++) {
+          push(newArr, arr2[i]);
+        }
+
+        return newArr;
+      }
+
+      arrA = [1, 2, 3];
+      arrB = [4, 5, 6];
+      console.log(concat(arrA, arrB));       // [ 1, 2, 3, 4, 5, 6 ]
+      console.log(arrA);
+
+      //4.
+      function join(arr, separator) {
+        var joinStr = '';
+
+        for (var i = 0; i < arr.length - 1; i++) {
+          joinStr += String(arr[i]) + separator;
+        }
+        
+        joinStr += String(arr[arr.length - 1]);
+        return joinStr;
+      }
+
+      console.log(join(['bri', 'tru', 'wha'], 'ck '));       // 'brick truck wha'
+      console.log(join([1, 2, 3], ' and '));                 // '1 and 2 and 3'
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

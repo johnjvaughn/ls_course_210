@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Practice Problems: Arrays</title>
+    <meta charset="utf-8">
+    <script>
+function missing(arr) {
+  if (arr.length < 2) return [];
+
+  var start = arr[0];
+  var end = arr[arr.length - 1];
+  var missingArr = [];
+
+  for (var num = start + 1; num < end; num++) {
+    if (arr.indexOf(num) < 0) missingArr.push(num);
+  }
+
+  return missingArr;
+}
+
+console.log(missing([-3, -2, 1, 5]));                  // [-1, 0, 2, 3, 4]
+console.log(missing([1, 2, 3, 4]));                    // []
+console.log(missing([1, 5]));                          // [2, 3, 4]
+console.log(missing([6]));                             // []
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
