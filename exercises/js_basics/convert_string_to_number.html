@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Basics</title>
+    <meta charset="utf-8">
+    <script>
+function digitValue(char) {
+  return char.charCodeAt(0) - '0'.charCodeAt(0);
+}
+
+function stringToInteger(str) {
+  var len = str.length;
+  var lastDigitValue;
+  var restOfNumber;
+  
+  if (len === 0) return 0;
+  lastDigitValue = digitValue(str[len - 1]);
+  restOfNumber = 10 * stringToInteger(str.slice(0, len - 1));
+  return restOfNumber + lastDigitValue;
+}
+
+console.log(stringToInteger('4321'));      // 4321
+console.log(stringToInteger('570'));       // 570
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Basics</title>
+    <meta charset="utf-8">
+    <script>
+function digitToChar(digit) {
+  return String.fromCharCode('0'.charCodeAt(0) + digit);
+}
+
+function integerToString(num) {
+  var finalStr = '';
+  var digit;
+
+  do {
+    digit = num % 10;
+    finalStr = digitToChar(digit) + finalStr;
+    num = Math.floor(num / 10);
+  } while (num > 0);
+
+  return finalStr;
+}
+
+function signedIntegerToString(num) {
+  var sign = (num > 0) ? '+' : (num < 0) ? '-' : '';
+  
+  return sign + integerToString(Math.abs(num));
+}
+
+console.log(signedIntegerToString(4321));      // "+4321"
+console.log(signedIntegerToString(-123));      // "-123"
+console.log(signedIntegerToString(0));         // "0"
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

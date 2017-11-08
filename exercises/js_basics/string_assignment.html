@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Basics</title>
+    <meta charset="utf-8">
+    <script>
+var name = 'Bob';
+var saveName = name;
+name = 'Alice';   //non-mutative, name now points to a different string than saveName
+console.log(name, saveName);  //Alice Bob
+
+var name2 = 'Bob';
+var saveName2 = name2;  //point to same object
+name2.toUpperCase();  //does not (cannot) mutate string
+console.log(name2, saveName2);  //Bob Bob (still point to same object, 'Bob')
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Basics</title>
+    <meta charset="utf-8">
+    <script>
+function countPhraseChars() {
+  var phrase = prompt('Please enter a phrase:');
+  var numChars = String(phrase.length);
+
+  console.log('There are ' + numChars + ' characters in "' + phrase + '".');
+}
+function countPhraseNonSpaces() {
+  var phrase = prompt('Please enter a phrase:');
+  var numChars = String(phrase.replace(/ /g, '').length);
+
+  console.log('There are ' + numChars + ' non-space characters in "' + phrase + '".');
+}
+function countPhraseAlphabetChars() {
+  var phrase = prompt('Please enter a phrase:');
+  var numChars = String(phrase.replace(/[^a-z]/gi, '').length);
+
+  console.log('There are ' + numChars + ' alphabet characters in "' + phrase + '".');
+}
+countPhraseAlphabetChars();
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

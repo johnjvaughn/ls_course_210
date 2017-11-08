@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Basics</title>
+    <meta charset="utf-8">
+    <script>
+function digitToChar(digit) {
+  return String.fromCharCode('0'.charCodeAt(0) + digit);
+}
+
+function integerToStringRecursive(num) {
+  var lastDigit;
+  var allButLastDigit;
+
+  if (num === 0) return '0';
+  lastDigit = digitToChar(num % 10);
+  if (Math.floor(num / 10) === 0) return lastDigit;
+  allButLastDigit = integerToStringRecursive(Math.floor(num / 10));
+  return allButLastDigit + lastDigit;
+}
+
+function integerToString(num) {
+  var finalStr = '';
+  var digit;
+
+  do {
+    digit = num % 10;
+    finalStr = digitToChar(digit) + finalStr;
+    num = Math.floor(num / 10);
+  } while (num > 0);
+
+  return finalStr;
+}
+
+console.log(integerToString(4321));      // "4321"
+console.log(integerToString(0));         // "0"
+console.log(integerToString(5000));      // "5000"
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
