@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Math Objects</title>
+    <meta charset="utf-8">
+    <script>
+//1.
+function radiansToDegrees(angle) {
+  return angle * 180 / Math.PI;
+}
+
+console.log(radiansToDegrees(-1 * Math.PI / 2));
+console.log(radiansToDegrees(1));
+
+//2.
+var number = -180;
+console.log(Math.abs(number));
+
+//3.
+console.log(Math.sqrt(16777216));
+
+//4.
+console.log(Math.pow(16, 6));
+console.log(Math.pow(16, 0.5));
+
+//5.
+var a = 50.72;
+var b = 49.2;
+var c = 49.86;
+console.log(Math.floor(a));
+console.log(Math.ceil(b));
+console.log(Math.round(c));
+
+//6.
+function randomInt(min, max) {
+  if (min > max) {
+    var temp = min;
+    min = max;
+    max = temp;
+  }
+
+  return min + Math.floor((Math.random() * (max - min + 1)));
+}
+
+for (var i = 0; i < 24; i++) {
+  console.log(randomInt(10, 20));
+}
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

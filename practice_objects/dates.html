@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Working With Dates</title>
+    <meta charset="utf-8">
+    <script>
+//1.
+var today = new Date();
+
+//2.
+console.log("Today's day is " + String(today.getDay()));
+
+//3.
+var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+console.log("Today's day is " + daysOfWeek[today.getDay()]);
+
+//4.
+console.log("Today's date is " + daysOfWeek[today.getDay()] + ", the " + today.getDate() + "th");
+
+//5.
+console.log("Today's date is " + daysOfWeek[today.getDay()] + ", the " + dateSuffix(23));
+function dateSuffix(dayOfMonth) {
+  var suffix;
+
+  if ([1, 21, 31].indexOf(dayOfMonth) >= 0) {
+    suffix = 'st';
+  } else if ([2, 22].indexOf(dayOfMonth) >= 0) {
+    suffix = 'nd';
+  } else if ([3, 23].indexOf(dayOfMonth) >= 0) {
+    suffix = 'rd';
+  } else {
+    suffix = 'th';
+  }
+  return String(dayOfMonth) + suffix;
+}
+
+//6.
+console.log("Today's date is " + daysOfWeek[today.getDay()] + ", " + String(today.getMonth()) + " " + dateSuffix(today.getDate()));
+
+//7.
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+console.log("Today's date is " + daysOfWeek[today.getDay()] + ", " + months[today.getMonth()] + " " + dateSuffix(today.getDate()));
+
+//8.
+function formattedMonth(date) {
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  return months[date.getMonth()];
+}
+function formattedDay(date) {
+  var daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  return daysOfWeek[date.getDay()];
+}
+function formattedDate(date) {
+  var day = formattedDay(date);
+  var month = formattedMonth(date);
+
+  console.log("Today's date is " + day + ", " + month + " " + dateSuffix(date.getDate()));
+}
+formattedDate(today);
+
+//9.
+console.log(today.getFullYear());
+console.log(today.getYear());
+
+//10.
+console.log(today.getTime());
+
+//11.
+var tomorrow = new Date(today.getTime());
+formattedDate(tomorrow);
+tomorrow.setDate(tomorrow.getDate() + 1);
+formattedDate(tomorrow);
+
+//12.
+var nextWeek = new Date(today.getTime());
+console.log(nextWeek === today);
+
+//13.
+console.log(nextWeek.toDateString());
+console.log(nextWeek.toDateString() === today.toDateString());
+nextWeek.setDate(nextWeek.getDate() + 7);
+console.log(nextWeek.toDateString());
+console.log(nextWeek.toDateString() === today.toDateString());
+
+//14.
+function padLeftZero(num) {
+  return (num < 10) ? '0' + String(num) : String(num);
+}
+function formatTime(date) {
+  return padLeftZero(date.getHours()) + ':' + padLeftZero(date.getMinutes());
+}
+console.log(formatTime(today));
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
