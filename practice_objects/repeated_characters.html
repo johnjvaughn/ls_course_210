@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Repeated Characters</title>
+    <meta charset="utf-8">
+    <script>
+function repeatedCharacters(str) {
+  var letterCount = {};
+  str = str.toLowerCase();
+
+  for (var i = 0, len = str.length; i < len; i++) {
+    letterCount[str[i]] = str[i] in letterCount ? letterCount[str[i]] + 1 : 1;
+  }
+
+  for (letter in letterCount) {
+    if (letterCount[letter] < 2) delete letterCount[letter];
+  }
+
+  return letterCount;
+}
+
+console.log(repeatedCharacters('Programming'));    // { r: 2, g: 2, m: 2 }
+console.log(repeatedCharacters('Combination'));    // { o: 2, i: 2, n: 2 }
+console.log(repeatedCharacters('Pet'));            // {}
+console.log(repeatedCharacters('Paper'));          // { p: 2 }
+console.log(repeatedCharacters('Baseless'));       // { s: 3, e: 2 }
+
+var foo = {};
+var bar = foo;
+foo.qux = 'hello';
+
+console.log(bar.qux);
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

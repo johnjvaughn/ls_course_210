@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Welcome Stranger</title>
+    <meta charset="utf-8">
+    <script>
+function greetings(nameArr, bioObj) {
+  var greeting = "Hello, " + nameArr.join(' ') + "! ";
+  greeting += "Nice to have a " + bioObj['title'] + " " + bioObj['occupation'] + " around.";
+  console.log(greeting);
+}
+
+greetings(['John', 'Q', 'Doe'], { title: 'Master', occupation: 'Plumber' });
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
