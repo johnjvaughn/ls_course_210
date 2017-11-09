@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Medium</title>
+    <meta charset="utf-8">
+    <script>
+
+function makeDoubler(caller) {
+  return function (number) {
+    console.log('This function was called by ' + caller + '.');
+    return number + number;
+  }
+}
+
+var doubler = makeDoubler('Victor');
+console.log(doubler(5));                             // returns 10
+// logs:
+// This function was called by Victor.
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Medium</title>
+    <meta charset="utf-8">
+    <script>
+
+var person = { name: 'Victor' };
+var otherPerson = { name: 'Victor' };
+
+console.log(person === otherPerson);    // false 
+//false because === will only return true on two objects if they are the exact same object
+
+function equalObj(obj1, obj2) {
+  var keys1 = Object.keys(obj1);
+  var keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+  for (i = 0; i < keys1.length; i += 1) {
+    if ((keys1[i] !== keys2[i]) || (obj1[keys1[i]] !== obj2[keys2[i]])) {
+      return false;
+    }
+  }
+
+  return true;
+}
+
+console.log(equalObj(person, otherPerson));
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
