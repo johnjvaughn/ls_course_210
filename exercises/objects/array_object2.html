@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Objects</title>
+    <meta charset="utf-8">
+    <script>
+
+var myArray = [5, 5];
+myArray[-1] = 5;
+myArray[-2] = 5;
+
+function average(array) {
+  var sum = 0;
+  var i;
+
+  for (i = -2; i < array.length; i += 1) {
+    sum += array[i];  // adds all members of array object correctly
+  }
+
+  return sum / array.length;  //however .length returns 2 (largest index + 1) not 4
+}
+
+console.log(average(myArray));  // 10
+
+function average_fixed(array) {
+  var sum = 0;
+
+  for (number in array) {
+    sum += array[number];
+  }
+
+  return sum / Object.keys(array).length;
+}
+
+console.log(average_fixed(myArray));  // 5
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

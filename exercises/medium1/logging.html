@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Medium</title>
+    <meta charset="utf-8">
+    <script>
+
+function debugIt() {
+  var status = 'debugging';
+  function logger() {
+    console.log(status);  // logs 'debugging' because status var above is availabe in this scope
+  }
+
+  logger();
+}
+
+debugIt();
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

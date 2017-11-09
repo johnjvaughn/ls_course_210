@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Medium</title>
+    <meta charset="utf-8">
+    <script>
+
+function productOfSums(array1, array2) {
+  var result;
+  result = total(array1) * total(array2);
+  return result;
+}
+
+function total(numbers) {
+  //var sum;    // needs to be initialized to 0
+  var sum = 0;
+  var i;
+
+  for (i = 0; i < numbers.length; i += 1) {
+    sum += numbers[i];
+  }
+
+  //sum;  //needs a return statement
+  return sum;
+}
+
+console.log(productOfSums([1, 2, 3], [3, 4, 5])); // 72
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

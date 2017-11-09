@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Medium</title>
+    <meta charset="utf-8">
+    <script>
+
+function invoiceTotal_orig(amount1, amount2, amount3, amount4) {
+  return amount1 + amount2 + amount3 + amount4;
+}
+
+function invoiceTotal() {
+  var total = 0;
+  var arg;
+
+  for (arg = 0; arg < arguments.length; arg += 1) {
+    total += arguments[arg];
+  }
+  return total;
+}
+
+console.log(invoiceTotal(20, 30, 40, 50));          // works as expected
+console.log(invoiceTotal(20, 30, 40, 50, 40, 40));  // does not work; how can you make it work?
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

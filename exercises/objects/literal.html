@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Objects</title>
+    <meta charset="utf-8">
+    <script>
+
+var myObject = {
+  a: 'name',
+  'b': 'test',
+  123: 'c',
+  1: 'd',
+};
+
+myObject[1];
+myObject[a];  //no variable named a, so ReferenceError
+myObject.a;
+console.log(myObject);
+var x = 'a'
+console.log(myObject[x]);
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
