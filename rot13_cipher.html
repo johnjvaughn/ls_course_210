@@ -1,41 +1,6 @@
 <html>
   <head>
-    <script>
-var SHIFT = 13; // allowing for other rotation numbers than 13; can be any Integer from 0 to 25
-
-function encodeLetter(letter) {
-  var asciiNum = letter.charCodeAt(0) + SHIFT;
-  var lowerCase = letter.toLowerCase();
-
-  if (lowerCase.charCodeAt(0) + SHIFT > 'z'.charCodeAt(0)) {
-    asciiNum -= 26;
-  }
-
-  return String.fromCharCode(asciiNum);
-}
-
-function rot13(str) {
-  var len = str.length;
-  var codedStr = '';
-  var lowerCase;
-
-  for (var i = 0; i < len; i++) {
-    lowerCase = str[i].toLowerCase();
-    if (lowerCase >= 'a' && lowerCase <= 'z') {
-      codedStr += encodeLetter(str[i]);
-    } else {
-      codedStr += str[i];
-    }
-  }
-
-  return codedStr;
-}
-
-var sentence = 'Teachers open the door, but you must enter by yourself.'
-console.log('Grnpuref bcra gur qbbe, ohg lbh zhfg ragre ol lbhefrys.' === rot13(sentence));
-console.log(sentence === rot13(rot13(sentence)));
-
-    </script>
+    <script src="rot13_cipher.js"></script>
   </head>
   <body>
   </body>
