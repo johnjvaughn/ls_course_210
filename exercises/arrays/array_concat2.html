@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Arrays</title>
+    <meta charset="utf-8">
+    <script>
+
+function concat() {
+  var concatArr = [];
+  var arg;
+  var arrayArg;
+  var i;
+
+  for (arg = 0; arguments[arg] !== undefined; arg += 1) {
+    if (Array.isArray(arguments[arg])) {
+      arrayArg = arguments[arg];
+      for (i = 0; i < arrayArg.length; i += 1) {
+        concatArr.push(arrayArg[i]);
+      }
+    } else {
+      concatArr.push(arguments[arg]);
+    }
+  }
+  
+  return concatArr;
+}
+
+console.log(concat([1, 2, 3], [4, 5, 6], [7, 8, 9]));    // [1, 2, 3, 4, 5, 6, 7, 8, 9]
+console.log(concat([1, 2], 'a', ['one', 'two']));        // [1, 2, "a", "one", "two"]
+console.log(concat([1, 2], ['three'], 4));               // [1, 2, "three", 4]
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

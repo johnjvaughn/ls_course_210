@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>JS Arrays</title>
+    <meta charset="utf-8">
+    <script>
+
+function shift_spice(arr) {
+  return arr.splice(0, 1)[0];
+}
+
+function shift(arr) {
+  var shiftedItem = arr.reverse().pop();
+
+  arr.reverse();
+  return shiftedItem;
+}
+
+function unshift_splice(arr) {
+  var numArgs = arguments.length;
+  var arg;
+
+  for (arg = numArgs - 1; arg >= 1; arg -= 1) {
+    arr.splice(0, 0, arguments[arg]);
+  }
+  
+  return arr.length;
+}
+
+function unshift(arr) {
+  var numArgs = arguments.length;
+  var arg;
+
+  arr.reverse();
+
+  for (arg = numArgs - 1; arg >= 1; arg -= 1) {
+    arr.push(arguments[arg]);
+  }
+  
+  arr.reverse();
+  return arr.length;
+}
+
+console.log(shift([1, 2, 3]));                // 1
+console.log(shift([]));                       // undefined
+console.log(shift([[1, 2, 3], 4, 5]));        // [1, 2, 3]
+
+console.log(unshift([1, 2, 3], 5, 6));        // 5
+console.log(unshift([1, 2, 3]));              // 3
+console.log(unshift([4, 5], [1, 2, 3]));      // 3
+
+var testArray = [1, 2, 3];
+console.log(shift(testArray));                // 1
+console.log(testArray);                       // [2, 3]
+console.log(unshift(testArray, 5, 7));        // 4
+console.log(testArray);                       // [5, 7, 2, 3]
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
