@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Iteration</title>
+    <meta charset="utf-8">
+    <script>
+
+function myOwnEvery(array, func) {
+  var len = array.length;
+  var i;
+
+  for (i = 0; i < len; i += 1) {
+    if (!func(array[i], i, array)) return false;
+  }
+
+  return true;
+}
+
+var isAString = function (value) {
+  var result = (typeof value === 'string');
+  return (typeof value === 'string');
+};
+
+console.log(myOwnEvery(['a', 'a234', '1abc'], isAString));       // true
+
+function areAllNumbers(array) {
+  return myOwnEvery(array, isANumber);
+}
+
+var isANumber = function (value) {
+  return typeof value === 'number';
+};
+
+console.log(areAllNumbers([1, 5, 6, 7, '1']));             // false
+console.log(areAllNumbers([1, 5, 6, 7, 1]));               // true
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

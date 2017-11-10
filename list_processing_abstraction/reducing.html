@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Iteration</title>
+    <meta charset="utf-8">
+    <script>
+
+function myReduce(array, func, initial) {
+  var accumulator = initial;
+  var start = 0;
+
+  if (accumulator === undefined) {
+    accumulator = array[0];
+    start = 1;
+  }
+  array.slice(start).forEach (function (value) {
+    accumulator = func(accumulator, value);
+  });
+
+  return accumulator;
+}
+
+var smallest = function (result, value) {
+  return result <= value ? result : value;
+};
+
+var sum = function (result, value) {
+  return result + value;
+};
+
+console.log(myReduce([5, 12, 15, 1, 6], smallest));           // 1
+console.log(myReduce([5, 12, 15, 1, 6], sum, 10));            // 49
+
+function longestWord(words) {
+  return myReduce(words, longest);
+}
+
+var longest = function (result, currentWord) {
+  return currentWord.length >= result.length ? currentWord : result;
+};
+
+console.log(longestWord(['abc', 'launch', 'targets', '']));      // "targets"
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
