@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Iteration</title>
+    <meta charset="utf-8">
+    <script>
+
+function octalToDecimal1(numberString) {
+  var len = numberString.length;
+  var decimal = 0;
+  var i;
+
+  for (i = 0; i < len; i += 1) {
+    decimal += Number(numberString[i]) * Math.pow(8, len - i - 1);
+  }
+
+  return decimal;
+}
+
+function octalToDecimal2(numberString) {
+  return numberString.split('').map(function (char, index, array) {
+    return Number(char) * Math.pow(8, array.length - index - 1);
+  }).reduce (function (sum, value) {
+    return sum + value;
+  }, 0);
+}
+
+function octalToDecimal(numberString) {
+  return numberString.split('').reduce(function (sum, char, index) {
+    return sum + (Number(char) * Math.pow(8, numberString.length - index - 1));
+  }, 0);
+}
+
+console.log(octalToDecimal('1'));           // 1
+console.log(octalToDecimal('10'));          // 8
+console.log(octalToDecimal('130'));         // 88
+console.log(octalToDecimal('17'));          // 15
+console.log(octalToDecimal('2047'));        // 1063
+console.log(octalToDecimal('011'));         // 9
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Iteration</title>
+    <meta charset="utf-8">
+    <script>
+
+function areEqualSets(arr1, arr2) {
+  var arr1 = arr1.slice();
+  var len = arr2.length;
+
+  if (arr1.length !== len) return false;
+  for (i = 0; i < len; i += 1) {
+    index = arr1.indexOf(arr2[i]);
+    if (index < 0) return false;
+    arr1.splice(index, 1);
+  }
+  return true;
+}
+
+function areAnagrams(word1, word2) {
+  return (areEqualSets(word1.split(''), word2.split('')));
+}
+
+function anagram(word, list) {
+  return list.filter(function (listWord) {
+    return areAnagrams(listWord, word);
+  });
+}
+
+console.log(anagram('listen', ['enlists', 'google', 'inlets', 'banana']));  // [ "inlets" ]
+console.log(anagram('listen', ['enlist', 'google', 'inlets', 'banana']));   // [ "enlist", "inlets" ]
+
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

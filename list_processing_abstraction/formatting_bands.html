@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <title>Iteration</title>
+    <meta charset="utf-8">
+    <script>
+
+var bands = [
+  { name: 'sunset rubdown', country: 'UK', active: false },
+  { name: 'women', country: 'Germany', active: false },
+  { name: 'a silver mt. zion', country: 'Spain', active: true },
+];
+
+function capitalizeWords(str) {
+  return str.replace(/\b[a-z]/g, function (match) {
+    return match.toUpperCase();
+  });
+}
+
+function removeDots(str) {
+  return str.replace(/\./g, '');
+}
+
+function processBandName(band) {
+  return capitalizeWords(removeDots(band.name));
+}
+
+function processBandCountry(band) {
+  return 'Canada';
+}
+
+function processBands(data) {
+  return data.map(function (band) {
+    return {
+      band: processBandName(band),
+      country: processBandCountry(band),
+      active: band.active,
+    };
+  });
+}
+
+console.log(processBands(bands));
+
+// should return:
+[
+  { name: 'Sunset Rubdown', country: 'Canada', active: false },
+  { name: 'Women', country: 'Canada', active: false },
+  { name: 'A Silver Mt Zion', country: 'Canada', active: true },
+]
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
