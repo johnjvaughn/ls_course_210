@@ -1,23 +1,3 @@
-function isEmpty(value) {
-  var type = typeof value;
-  if (type === 'string') {
-    return value.length === 0;
-  } else if (Array.isArray(value)) {
-    return value.length === 0;
-  } else if (type === 'object') {
-    return Object.keys(value).length === 0;
-  }
-}
+var str = 'Bunch_of_underscores_in_snake_case';
 
-console.log(isEmpty({}));                  // true
-console.log(isEmpty({ name: 'Janice' }));  // false
-
-console.log(isEmpty(''));                  // true
-console.log(isEmpty('Janice'));            // false
-
-console.log(isEmpty([]));                  // should return true
-console.log(isEmpty(['Janice']));          // should return false
-var arr = [];
-arr[-1] = 'a';
-console.log(isEmpty(arr));          // should return false
-
+console.log(str.split(/_/));
