@@ -1,21 +1,34 @@
-function diamond(number) {
+function diamondSolid(number) {
   var output = '';
+  var increment = 2;
   var i;
 
   if (!Number.isInteger(number) || number % 2 === 0 || number < 0) {
     return undefined;
   }
 
-  //iterate over odd integers from 1 up to <number>
-  //output a separate line of *s for each iteration index
-  //length of each line of *s = iterator
-  //then, go in reverse, back down to 1
-
-  for (i = 1; i <= number; i += 2) {
+  for (i = 1; i >= 1; i += increment) {
     output += ' '.repeat((number - i) / 2) + '*'.repeat(i) + '\n';
+    if (i === number) increment = -2;
   }
-  for (i = number - 2; i >= 1; i -= 2) {
-    output += ' '.repeat((number - i) / 2) + '*'.repeat(i) + '\n';
+
+  return output;
+}
+
+function diamond(number) {
+  var output = '';
+  var increment = 2;
+  var i;
+
+  if (!Number.isInteger(number) || number % 2 === 0 || number < 0) {
+    return undefined;
+  }
+
+  for (i = 1; i >= 1; i += increment) {
+    output += ' '.repeat((number - i) / 2) + '*';
+    if (i > 1) output += ' '.repeat(i - 2) + '*';
+    output += '\n';
+    if (i === number) increment = -2;
   }
 
   return output;
