@@ -1,3 +1,1 @@
-var str = 'Bunch_of_underscores_in_snake_case';
-
-console.log(str.split(/_/));
+console.log('test.js');
